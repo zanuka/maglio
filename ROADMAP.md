@@ -6,9 +6,9 @@ High-level phased plan. This is a living document — priorities will shift base
 
 - [x] Name and vision locked (Maglio)
 - [x] README + roadmap
-- [ ] Repository created and public
+- [x] Repository created and public
+- [x] MIT license, contributing guidelines, CODE_OF_CONDUCT
 - [ ] Basic TypeScript CLI skeleton
-- [ ] MIT license, contributing guidelines, CODE_OF_CONDUCT
 - [ ] GitHub issue templates and project board for public development
 
 **Goal:** Clean starting point that makes the “factory of factories” vision obvious and invites early feedback.
