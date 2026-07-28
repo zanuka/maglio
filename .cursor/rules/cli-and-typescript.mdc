@@ -1,0 +1,36 @@
+---
+description: TypeScript CLI conventions for Maglio
+globs: ["**/*.{ts,tsx,js,mjs,cjs}", "package.json", "tsconfig*.json"]
+alwaysApply: false
+---
+
+# CLI & TypeScript Conventions
+
+## CLI design
+
+- Commands should be composable and predictable (`init`, `scaffold`, `doctor`, `status`, etc.)
+- Support both interactive and non-interactive / CI-friendly usage
+- Prefer explicit flags over hidden behavior
+- Include `--dry-run` for any command that mutates the workspace or overwrites generated files
+- Help text should be concise and show the happy path first
+- Prefer idempotent behavior: re-running scaffold should not thrash careful user edits without intent
+
+## TypeScript
+
+- Strict mode preferred
+- Prefer interfaces / types that model the domain clearly (FactoryBlueprint, Stage, Recipe, SafetyRails, Profile, etc.)
+- Avoid deep inheritance; favor composition
+- Keep modules focused — one primary responsibility per file when practical
+- Public CLI surface should be stable; internal modules can evolve faster
+
+## Error handling
+
+- Fail fast with clear messages
+- Tell the user the next concrete action when possible
+- Distinguish between user error (bad config, missing files) and system error
+
+## Testing mindset
+
+- Core schema validation, stage emission, and recipe loading should be unit-testable
+- Prefer pure functions for blueprint → artifact transformation where possible
+- CLI integration tests can come later; focus on the domain logic first

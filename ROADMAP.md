@@ -8,6 +8,9 @@ High-level phased plan. This is a living document — priorities will shift base
 - [x] README + roadmap
 - [x] Repository created and public
 - [x] MIT license, contributing guidelines, CODE_OF_CONDUCT
+- [x] SECURITY.md
+- [x] AGENTS.md — primary agent contract and project identity
+- [x] Cursor rules (`.cursor/rules/`) for Maglio core, factory scaffold, and CLI/TypeScript
 - [ ] Basic TypeScript CLI skeleton
 - [ ] GitHub issue templates and project board for public development
 

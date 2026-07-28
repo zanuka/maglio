@@ -1,0 +1,61 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build / output
+dist/
+build/
+*.tsbuildinfo
+.turbo/
+.cache/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test / coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# IDE / editor
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Maglio local / generated runtime state
+.maglio/local/
+.maglio/cache/
+.maglio/runs/
+*.factory-state.json
+
+# Temporary
+tmp/
+temp/
+*.tmp
+
+# Package manager lockfiles (uncomment the ones you do NOT want to commit)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml

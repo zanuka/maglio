@@ -1,0 +1,59 @@
+---
+description: Rules for factory blueprints, stages, recipes, skills, and safety rails
+globs: ["**/stages/**", "**/recipes/**", "**/scaffold*/**", "**/schema/**", "**/*factory*", "**/*stage*", "**/*recipe*", "**/*skill*", ".maglio/**"]
+alwaysApply: false
+---
+
+# Factory Scaffold & Stage Rules
+
+## Blueprint principles
+
+- The declarative factory config is the source of truth for what gets generated
+- Profiles (e.g. light vs overnight) should share the same stage model with different autonomy / stop settings
+- Explicit is better than clever: model roles, stop conditions, and review gates should be visible in config
+
+## Stages
+
+Prefer stages with clear contracts:
+
+- Inputs (brief, plan, work order, prior artifacts)
+- Outputs (artifacts the next stage can consume)
+- Stop conditions / circuit breakers
+- Whether a human gate is required
+
+Core line to keep coherent:
+
+1. Plan / interview → product brief
+2. Plan → tasks + tests
+3. Handoff → packaged work order (planning model → execution model)
+4. Loop → build + self-check under stop conditions
+5. Review → independent agent grades against original plan and tests
+6. Explain → owner’s manual / comprehension update
+7. Optional proof / evidence package
+
+Do not invent stages that blur planning, execution, and review into one unsupervised blob.
+
+## Skills & AGENTS.md
+
+- Emit artifacts compatible with common harnesses (Cursor, Claude Code, and similar skill / AGENTS.md conventions)
+- AGENTS.md should describe the factory contract, not dump internal Maglio implementation details
+- Generated skills should be readable and editable by humans
+
+## Safety rails
+
+- Default scaffolds must include stop conditions
+- Review should assume a fresh agent that did not perform the build
+- Prefer failing closed when autonomy limits are unclear
+- Never encourage “keep going while I sleep” without circuit breakers
+
+## Recipes
+
+- Recipes are shareable stage sets + defaults for a project shape
+- Keep recipe format simple enough that others can contribute without deep Maglio internals
+- Document assumptions (stack, team size, autonomy level) inside the recipe
+
+## Comprehension
+
+- Prefer generating or updating plain-language owner material when the factory changes behavior
+- Evidence packages should answer: what was attempted, what passed, what failed, what was deferred
+- Reducing comprehension debt is a feature, not a nice-to-have

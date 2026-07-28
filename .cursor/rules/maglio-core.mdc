@@ -1,0 +1,48 @@
+---
+description: Core project rules for Maglio — factory of factories CLI for agentic software factories
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Maglio Core Rules
+
+You are working on **Maglio**, an open-source CLI that scaffolds local agentic software factories. It turns a declarative factory blueprint into skills, stage harnesses, AGENTS.md contracts, circuit breakers, and handoff packages so coding agents can run structured production lines.
+
+## Non-negotiable principles
+
+- Keep designs **local-first** and version-controlled in the user’s repo
+- Amplify existing engineering practices (tests, reviews, ADRs, standards) — do not replace them
+- Prefer **comprehension-first** outcomes: owner’s manuals, independent review, evidence packages
+- Prefer **declarative** factory config over prompt-chasing or hidden chat state
+- Support **progressive autonomy** (light profiles → overnight profiles) with explicit stop conditions
+- Treat **recipes and stages** as the primary extension and contribution surface
+- CLI is the primary interface; keep it fast and predictable
+
+## Architecture boundaries
+
+Keep these concerns separated:
+
+1. Factory schema / blueprint (`factory.yaml` or equivalent)
+2. Stage emitters (plan, tests, handoff, loop, review, explain, …)
+3. Skill / slash-command generation for target harnesses
+4. Validation / doctor checks
+5. Recipe loading and contribution surface
+
+Do not collapse these into a single opaque “generate everything” blob.
+
+## Working style
+
+- Prefer small, focused changes
+- Update `ROADMAP.md` status when a phase item is completed or significantly changed
+- When adding user-facing commands, support `--dry-run` where it makes sense
+- Errors must be actionable
+- Strong TypeScript typing; avoid `any`
+- Scaffold output must remain human-reviewable
+
+## What to avoid
+
+- Inventing architecture that contradicts local-control or comprehension-first principles
+- Expanding into hosted multi-agent platforms, general agent marketplaces, or memory backends unless explicitly asked
+- Making cloud services the default path
+- Generating factories without stop conditions or review gates
+- Treating Maglio as a replacement for good engineering process
