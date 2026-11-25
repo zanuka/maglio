@@ -18,17 +18,18 @@ High-level phased plan. This is a living document — priorities will shift base
 
 ## Phase 1 — Core CLI + Declarative Blueprint
 
-- [ ] `maglio init` — detect project root, scaffold `.maglio/` and a starter `factory.yaml`
-- [ ] Declarative factory schema (stages, profiles, safety rails, model roles)
+- [ ] `maglio init` - detect project root, scaffold `.maglio/` and a starter `factory.yaml`
+- [ ] Declarative factory schema (typed stage `inputs`/`outputs`, conditional `to` routing for triage/gating, profiles, safety rails, model roles)
 - [ ] Sensible defaults for a typical full-stack / web project
-- [ ] `maglio doctor` — validate config and required files
+- [ ] `maglio doctor` - validate config and required files
+- [ ] `maglio graph` - render the blueprint as a Mermaid or ASCII state diagram
 - [ ] Dry-run support on all mutating commands
 
 **Goal:** A developer can run `maglio init` and understand the shape of their future assembly line in under a minute.
 
 ## Phase 2 — Scaffold: Skills, Stages, and AGENTS.md
 
-- [ ] Stage emitters for the core line: plan → tasks/tests → handoff → loop → review → explain
+- [ ] Stage emitters for the core line: triage -> spec (human judgment gate) -> plan -> tasks/tests -> handoff -> loop -> review -> explain
 - [ ] Skill / slash-command generation compatible with common agent harnesses (Cursor, Claude Code, and similar)
 - [ ] `AGENTS.md` generation or safe merge that describes the factory contract
 - [ ] Circuit-breaker and stop-condition templates
@@ -39,7 +40,8 @@ High-level phased plan. This is a living document — priorities will shift base
 ## Phase 3 — Recipes and Contribution Surface
 
 - [ ] Recipe format (shareable stage sets + defaults)
-- [ ] Built-in starter recipes (solo full-stack, small team, documentation-heavy, etc.)
+- [ ] Built-in starter recipes (solo full-stack, small team, documentation-heavy, etc.) including app-specific verification skill templates
+- [ ] Lightweight "gotchas" convention so agents can record discovered verification quirks into stage/skill files (or Nocciolo)
 - [ ] Documented extension points for custom stages
 - [ ] Contribution guide focused on recipes and stage modules
 - [ ] Example factory configs in the repo
@@ -50,6 +52,7 @@ High-level phased plan. This is a living document — priorities will shift base
 
 - [ ] Owner’s manual generation / update stage
 - [ ] Review-stage contract (fresh agent, plan re-check, test re-run)
+- [ ] Merge risk assessment stage / rubric (alignment, blast radius, verification, rollback cost, error detection) run pre-PR so agents can self-mitigate and reviewers can triage PRs at a glance
 - [ ] Evidence package hooks (what was proven, what failed, what was deferred)
 - [ ] Optional proof / demo stage interface (browser or recorded walkthrough — pluggable)
 - [ ] Simple metrics for comprehension debt (files touched vs explained)

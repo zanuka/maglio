@@ -17,9 +17,11 @@ Most “software factory” approaches today are either:
 
 - One person’s private skill stack that is hard to reuse
 - Cloud platforms that own the loop and the data
+- Naive backlog loops ("slop cannons") that pump out unverified PRs nobody trusts or reads
 - Prompt-chasing sessions that collapse the moment the human steps away
 
 Developers who want **local control**, durable standards, and progressive autonomy still have to reinvent the assembly line every time.
+Git and `.maglio/` can centralize team factory knowledge without locking you into a proprietary cloud runtime.
 
 ## The Vision
 
@@ -29,10 +31,10 @@ It is a CLI that turns a declarative factory blueprint into the concrete files y
 
 - Skills and slash commands
 - `AGENTS.md` and project rules
-- Stage harnesses (plan → tasks → tests → handoff → loop → review → explain)
-- Circuit breakers and stop conditions
+- Stage harnesses with conditional routing (triage -> spec -> plan -> tasks -> tests -> handoff -> loop -> review -> explain)
+- Circuit breakers, human judgment gates, and stop conditions
 - Work orders that separate high-capability planning from lower-cost execution
-- Owner’s manuals and evidence packages so you still understand what was built
+- Merge risk assessments, owner’s manuals, and evidence packages so you know what to trust and still understand what was built
 
 Maglio does not run your factory for you. It gives you the tools to stand one up that fits *your* repo, *your* standards, and *your* tolerance for autonomy.
 
@@ -47,6 +49,7 @@ Instead of copying someone else’s private `/factory` skill and hoping it fits,
 maglio init          # detect project, create factory config
 maglio scaffold      # emit skills, AGENTS.md, stage files, stop conditions
 maglio doctor        # validate the assembly line
+maglio graph         # visualize the blueprint as a Mermaid or ASCII diagram
 ```
 
 You choose the stages, the models for planning vs execution, the safety rails, and how far autonomy is allowed to go. Daytime “light factory” and overnight “full loop” can be different profiles of the same system.
@@ -62,13 +65,14 @@ Maglio is built as a **recipe and stage system**, not a closed product:
 The goal is a shared library of factory patterns that any developer can adopt, adapt, and improve.
 
 ### C) Innovate on software-factory practice
-Existing factories often optimize for “ship more code while I sleep.” Maglio optimizes for three additional properties:
+Existing factories often optimize for “ship more code while I sleep.” Maglio optimizes for four additional properties:
 
-1. **Comprehension-first** — every factory run should leave behind plain-language explanation and evidence, not just diffs
-2. **Local and progressive** — start with human-in-the-loop stages; expand autonomy only when stop conditions and review gates are trusted
-3. **Declarative over prompt theater** — the factory is config + files in the repo, not a fragile chat history
+1. **Human judgment gates before code** - triage ambiguous work into an interactive spec step instead of letting agents vibe out product decisions
+2. **Risk-scored, evidence-backed PRs** - assess merge risk (alignment, blast radius, verification, rollback cost, error detection) pre-PR so reviewers know what needs close scrutiny
+3. **Comprehension-first** - every factory run should leave behind plain-language explanation and verification proof, not just diffs
+4. **Declarative, local, and progressive** - the factory is version-controlled config + files in the repo, starting human-in-the-loop and expanding autonomy only when stop conditions and review gates are trusted
 
-Circuit breakers, separate planning vs execution models, independent review agents, and owner’s manuals are first-class, not afterthoughts.
+Circuit breakers, separate planning vs execution models, independent review agents, merge risk rubrics, and owner’s manuals are first-class, not afterthoughts.
 
 ## What Maglio Produces
 
